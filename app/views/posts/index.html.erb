@@ -1,0 +1,16 @@
+<h1>Blog</h1>
+
+<%= link_to 'Create', new_post_path, class: 'btn btn-large btn-primary' %>
+
+<% @posts.each do |post| %>
+<div>
+  <h2><%= post.title %></h2>
+  <p><%= truncate(post.content, length: 450, ommision: "...") %>
+    <%= link_to 'more', post %>
+  </p>
+  <ul class="breadcrumb">
+    <li><%= link_to 'Edit', edit_post_path(post) %> <span class="divider">|</span></li>
+    <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </ul>
+</div>
+<% end %>
